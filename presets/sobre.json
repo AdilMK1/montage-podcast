@@ -1,0 +1,49 @@
+{
+ "logo": false,
+ "logo_marge": 0.06,
+ "accroche_y": 0.118,
+ "yeux": 0.4,
+ "sans_fin": true,
+ "musique": {
+  "fichier": "assets/musique/686.mp3",
+  "lufs": -26
+ },
+ "corrections": {},
+ "defauts_short": {
+  "glisse": false,
+  "sans_musique": true,
+  "accroche_duree": 3.2
+ },
+ "_": "Petits sous-titres fins, accroche discrète, rien de plus.",
+ "da": null,
+ "couleur": [
+  200,
+  200,
+  200
+ ],
+ "police_accent": "fonts/Inter.ttf",
+ "teintes": {
+  "clair": [
+   240,
+   240,
+   240
+  ],
+  "fond": [
+   20,
+   20,
+   24
+  ]
+ },
+ "sous_titres": {
+  "police": "fonts/Inter.ttf",
+  "graisse": 300,
+  "optique": 14,
+  "taille": 46,
+  "approche": -20,
+  "x": 0,
+  "y_bas": 380,
+  "echelle_cle": 1.0,
+  "graisse_cle": 500,
+  "casse": "normale"
+ }
+}

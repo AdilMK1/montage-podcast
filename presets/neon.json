@@ -1,0 +1,49 @@
+{
+ "logo": false,
+ "logo_marge": 0.06,
+ "accroche_y": 0.118,
+ "yeux": 0.4,
+ "sans_fin": true,
+ "musique": {
+  "fichier": "assets/musique/686.mp3",
+  "lufs": -26
+ },
+ "corrections": {},
+ "defauts_short": {
+  "glisse": false,
+  "sans_musique": true,
+  "accroche_duree": 3.2
+ },
+ "_": "Sous-titres en majuscules, épais, mot clé plus gros en vert vif.",
+ "da": null,
+ "couleur": [
+  57,
+  255,
+  136
+ ],
+ "police_accent": "fonts/Montserrat.ttf",
+ "teintes": {
+  "clair": [
+   245,
+   245,
+   245
+  ],
+  "fond": [
+   10,
+   10,
+   14
+  ]
+ },
+ "sous_titres": {
+  "police": "fonts/Montserrat.ttf",
+  "graisse": 800,
+  "optique": 18,
+  "taille": 64,
+  "approche": 0,
+  "x": 0,
+  "y_bas": 520,
+  "echelle_cle": 1.25,
+  "graisse_cle": 900,
+  "casse": "majuscules"
+ }
+}

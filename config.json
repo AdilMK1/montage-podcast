@@ -1,0 +1,6 @@
+{
+ "_": "Personnalisation de l'app (nom affiché, couleur de l'interface, habillage des shorts par défaut).",
+ "nom": "Montage Podcast",
+ "accent": "#4F6BED",
+ "preset_defaut": "neutre"
+}

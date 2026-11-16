@@ -1,0 +1,50 @@
+{
+ "_": "Habillage neutre par défaut : accroche Inter Black blanche, mot clé en couleur d'accent, sans logo. Copier ce fichier pour créer l'habillage d'une marque (logo, couleur, police).",
+ "da": "craie",
+ "logo": false,
+ "logo_marge": 0.06,
+ "couleur": [
+  79,
+  107,
+  237
+ ],
+ "accroche_y": 0.118,
+ "yeux": 0.4,
+ "sans_fin": true,
+ "musique": {
+  "fichier": "assets/musique/686.mp3",
+  "lufs": -26
+ },
+ "sous_titres": {
+  "_": "Inter ExtraLight 58, approche -50, bas-centre, casse normale",
+  "police": "fonts/Inter.ttf",
+  "graisse": 200,
+  "optique": 18,
+  "taille": 58,
+  "approche": -50,
+  "x": 18,
+  "y_bas": 445,
+  "echelle_cle": 1.0,
+  "graisse_cle": 200,
+  "casse": "normale"
+ },
+ "defauts_short": {
+  "glisse": false,
+  "sans_musique": true,
+  "accroche_duree": 3.2
+ },
+ "corrections": {},
+ "police_accent": "fonts/Inter.ttf",
+ "teintes": {
+  "clair": [
+   240,
+   240,
+   240
+  ],
+  "fond": [
+   20,
+   20,
+   24
+  ]
+ }
+}

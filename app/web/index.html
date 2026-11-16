@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>{{NOM}}</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/composants.css">
+<link rel="stylesheet" href="/etapes.css">
+<link rel="stylesheet" href="/activite.css">
+<link rel="stylesheet" href="/casting.css">
+<link rel="stylesheet" href="/packs.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" id="logo" href="/" data-nav style="color:inherit;text-decoration:none"><i aria-hidden="true"></i><span>{{NOM}}</span></a>
+  <nav class="crumb" id="crumb" aria-label="Fil d'Ariane"></nav>
+  <div class="sp"></div>
+  <button class="sonbtn" id="sons" type="button" aria-pressed="false" title="Sons de l'interface : coupés"></button>
+  <button class="voyant" id="voyant" type="button" title="Voir l'activité de l'app"><i></i><span>Chargement…</span></button>
+</header>
+<div class="alerte" id="alerte" role="alert">
+  <span>Le moteur de travail s'est arrêté. Les rendus sont en pause.</span>
+  <button class="btn" id="redemarrer" type="button">Redémarrer</button>
+</div>
+<div class="hors" id="hors" role="status">Impossible de joindre l'app. Relance « Lancer ». On réessaie toutes les quelques secondes.</div>
+<main class="page" id="page"><p class="muted">Chargement…</p></main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/js/main.js?v={{VERSION}}"></script>
+</body>
+</html>

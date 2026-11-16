@@ -1,0 +1,81 @@
+MONTAGE PODCAST : INSTALLATION
+==============================
+
+Marche sur :
+- un PC Windows 10 ou 11 (64 bits), idéalement avec une carte NVIDIA (rendus et transcription bien plus rapides) ;
+- un Mac avec puce Apple (M1, M2, M3, M4...), macOS 14 ou plus récent.
+
+Compte environ 20 minutes la première fois, surtout des téléchargements.
+Prévois 10 Go libres sur le disque, plus la place des vidéos.
+
+
+1. METTRE LE DOSSIER EN PLACE
+-----------------------------
+Décompresse le zip (Windows : clic droit > Extraire tout ; Mac : double-clic) et range le dossier
+« Montage Podcast » où tu veux, par exemple dans Documents. Ne le déplace plus ensuite.
+Windows : évite un dossier synchronisé OneDrive (Bureau et Documents le sont souvent) ;
+C:\Montage Podcast est un bon choix.
+
+
+=============== SUR WINDOWS ===============
+
+2. INSTALLER
+------------
+Double-clique « Installer.bat ».
+
+- Si Windows affiche « Windows a protégé votre ordinateur » : clique « Informations
+  complémentaires » puis « Exécuter quand même ».
+- S'il manque ffmpeg ou Python, il les installe tout seul, puis te demande de FERMER la
+  fenêtre et de relancer Installer.bat (une ou deux fois, c'est normal).
+- Il télécharge ensuite les modules et le modèle de transcription (environ 1,5 Go) : 10 à 20 min.
+- Quand c'est écrit « C'est prêt », appuie sur une touche.
+
+Si « winget » n'est pas reconnu : installe « Programme d'installation d'application » depuis
+le Microsoft Store, puis relance Installer.bat.
+
+3. LANCER
+---------
+Double-clique « Lancer.bat ». L'app s'ouvre dans le navigateur (http://localhost:8765).
+Garde la fenêtre noire ouverte pendant que tu travailles.
+Si le pare-feu Windows pose une question pour Python : « Autoriser » (réseau privé suffit).
+
+
+=============== SUR MAC ===============
+
+2. INSTALLER LES OUTILS (une seule fois par Mac)
+------------------------------------------------
+a) Ouvre l'app « Terminal » (Cmd + Espace, tape Terminal, Entrée).
+b) Installe Homebrew : va sur https://brew.sh, copie la ligne affichée en haut de la page,
+   colle-la dans le Terminal, Entrée. Il demande le mot de passe du Mac (rien ne s'affiche
+   quand tu tapes, c'est normal). À la fin, fais les 2 ou 3 lignes « Next steps » affichées.
+c) Tape :   brew install ffmpeg python@3.14
+
+3. INSTALLER L'APP, PUIS LANCER
+-------------------------------
+Double-clique « Installer.command » (5 à 10 min), puis « Lancer.command ».
+Si le Mac refuse de l'ouvrir : clic droit sur le fichier > Ouvrir > Ouvrir.
+Si ça bloque encore : Réglages Système > Confidentialité et sécurité > « Ouvrir quand même ».
+Garde la petite fenêtre du Terminal ouverte pendant que tu travailles.
+
+
+=============== POUR TOUS ===============
+
+4. L'IA (facultatif, mais conseillé)
+------------------------------------
+Les propositions de shorts et des passages à couper viennent de Claude Code,
+avec TON propre compte Claude (abonnement Pro ou Max).
+Installe-le en suivant https://claude.com/claude-code, puis dans un terminal
+(Windows : PowerShell) tape « claude » une fois pour te connecter.
+Relance ensuite l'app. Sans IA, l'app marche quand même : tu choisis toi-même les shorts.
+
+5. TON HABILLAGE
+----------------
+Dans l'app, « Packs de shorts » : 4 packs sont fournis (Neutre, Craie, Neon, Sobre).
+Duplique celui qui te plaît, mets ton logo, ta couleur, ta police, ta musique.
+On peut aussi importer un pack reçu en .zip.
+
+EN CAS DE SOUCI
+---------------
+Dans l'app, bouton « Envoyer un rapport » : il fabrique un petit zip (jamais tes
+vidéos ni ton son) à envoyer à la personne qui t'a donné l'app.
+Le mode d'emploi complet est dans README.md.

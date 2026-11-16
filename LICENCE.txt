@@ -1,0 +1,16 @@
+Montage Podcast : conditions d'utilisation
+
+Copyright (c) 2026 AdilMK1 (github.com/AdilMK1). Tous droits réservés.
+
+Cette app t'est confiée pour ton usage personnel ou celui de ton studio.
+Tu peux l'installer et l'utiliser librement, et produire autant de vidéos que tu veux :
+elles t'appartiennent.
+
+Sans accord écrit de l'auteur, il est interdit de :
+- la revendre, la louer ou la proposer comme service payant ;
+- la redistribuer ou la publier (en tout ou en partie, modifiée ou non).
+
+Les polices fournies dans moteur/fonts sont sous licence libre (SIL Open Font License) ;
+elles restent soumises à leur propre licence.
+
+L'app est fournie telle quelle, sans garantie.

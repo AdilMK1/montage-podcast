@@ -1,0 +1,22 @@
+# médias et productions (lourds, propres à chaque machine)
+projets/
+/packs/
+demo/rushes/
+demo/archives/
+.cache/
+.venv
+moteur/work
+**/tmp/
+*.mp4
+*.mov
+*.wav
+*.MP4
+*.MOV
+# système
+.DS_Store
+__pycache__/
+*.pyc
+*.bak
+# moteur de travail (battement, journaux) et rapports de dépannage : propres à chaque machine
+.atelier/
+rapports/

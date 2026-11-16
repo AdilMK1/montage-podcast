@@ -1,0 +1,50 @@
+{
+ "logo": false,
+ "logo_marge": 0.06,
+ "accroche_y": 0.118,
+ "yeux": 0.4,
+ "sans_fin": true,
+ "musique": {
+  "fichier": "assets/musique/686.mp3",
+  "lufs": -26
+ },
+ "corrections": {},
+ "defauts_short": {
+  "glisse": false,
+  "sans_musique": true,
+  "accroche_duree": 3.2
+ },
+ "_": "Accroche blanche, mot clé manuscrit en couleur qui s'écrit, tons chauds.",
+ "da": "craie",
+ "couleur": [
+  247,
+  92,
+  3
+ ],
+ "police_accent": "fonts/Kalam-Bold.ttf",
+ "teintes": {
+  "clair": [
+   233,
+   226,
+   208
+  ],
+  "fond": [
+   57,
+   48,
+   41
+  ]
+ },
+ "logo_position": "bas",
+ "sous_titres": {
+  "police": "fonts/Inter.ttf",
+  "graisse": 200,
+  "optique": 18,
+  "taille": 58,
+  "approche": -50,
+  "x": 18,
+  "y_bas": 445,
+  "echelle_cle": 1.0,
+  "graisse_cle": 200,
+  "casse": "normale"
+ }
+}
