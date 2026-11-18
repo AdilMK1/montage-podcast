@@ -11,6 +11,7 @@ noir + logo sur l'impact.
 Usage : python vertical.py sessions/shorts_exemple2.json [début du nom d'un short …]
 """
 import json
+import os
 import random
 import subprocess
 import sys
@@ -47,6 +48,7 @@ SR = 48000
 GAP = 0.40  # silence retiré au-delà (s)
 SILENCE_DB = -30.0  # micro v2 : pauses entre -35 et -60 dB, parole au-dessus de -27
 PAD = (0.08, 0.14)  # marge gardée avant le 1er mot / après le dernier mot d'un morceau
+COUPER_EUH = os.environ.get("MONTAGE_EUH", "1") != "0"  # retire les « euh » des shorts (désactivable par extrait : "couper_euh": false)
 MAX_PLAN = 6.5  # un plan plus long est coupé sur la plus grande respiration (sans couper de son)
 MOVES = [(1.00, 1.05), (1.24, 1.29), (1.08, 1.13), (1.32, 1.37)]  # large / serré en alternance
 EYES = 0.30  # hauteur des yeux dans le cadre
@@ -214,6 +216,18 @@ def plans_of(ex, sentences, speaker, fix, mic):
         if chunks:
             chunks[0][0] = max(a, words[0][1] - PAD[0])
             chunks[-1][1] = min(b, words[-1][2] + PAD[1])
+        if chunks and ex.get("couper_euh", COUPER_EUH):  # « euh » retirés (effacés du transcript, retrouvés dans le son)
+            import euh
+            cuts_h = euh.hesitations(mic, a, b, cache_dir=Path(mic).parent, mots=words)
+            split = []
+            for c0, c1, ws in chunks:
+                for h0, h1 in cuts_h:
+                    if c0 + 0.1 < h0 and h1 < c1 - 0.1:
+                        split.append([c0, h0, [w for w in ws if w[1] < h0]])
+                        ws = [w for w in ws if w[1] >= h0]
+                        c0 = h1
+                split.append([c0, c1, ws])
+            chunks = [c for c in split if c[1] - c[0] > 0.05]
     # mots imposés pour couper (« zoom_sur », comme le teaser), puis coupe des plans trop longs
     forced = []
     for c in ex.get("zoom_sur", []):

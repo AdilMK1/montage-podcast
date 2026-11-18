@@ -83,7 +83,7 @@ Champs :
 ## 4. Règles qui ne se négocient pas (apprises sur de vrais montages)
 
 1. **Coupes** : un extrait commence au **début d'une phrase** et finit sur une **fin de phrase** ou une vraie pause. Jamais en plein mot. Avant de valider tes bornes, affiche pour chaque extrait les 4 mots avant, les 5 premiers, les 5 derniers, les 4 mots après (depuis `transcript.json`) et vérifie. Un mot qui commence pile sur ta borne sera mangé : recule de 0,2 s.
-2. **Préfère un seul extrait continu** (le resserrage enlève les blancs) plutôt que des morceaux recollés au milieu d'un échange.
+2. **Recolle par phrases entières** : chaque morceau est une ou plusieurs phrases complètes. Ne recolle jamais deux bouts au milieu d'un échange rapide entre deux personnes (ça s'entend). Les « euh » et les blancs sont retirés par l'app : ne découpe pas pour eux.
 3. **Après chaque rendu**, lis `shorts/verif_coupes.json`. Un début / une fin qui ne sont pas des phrases complètes, ou des mots « absents » qui ne sont pas des erreurs de Whisper (noms propres, langue étrangère) = corrige et re-rends. Ne présente jamais un short sans ce contrôle. Attention : Whisper « lisse » les répétitions et les apartés (« bon je ne veux pas parler à sa place… ») ; si un passage signalé absent est une répétition ou si la durée du short correspond à l'attendu, réécoute la zone (`mlx_whisper` avec `clip_timestamps`) avant de recouper.
 4. **Rien sur les visages** : l'accroche et les incrustations sont en haut, le visage est cadré plus bas (réglé dans le preset).
 5. **Dates** : écris la date en toutes lettres (« le 8 novembre »), jamais « demain » / « ce soir » à l'écran (le post sera lu plus tard).
@@ -92,4 +92,29 @@ Champs :
 8. **Pas de musique, pas de carton de fin** par défaut (preset). Ne les ajoute que si on te le demande.
 9. **Variantes** : quand on te demande des variantes, ne supprime jamais les précédentes sans accord.
 10. **Passages sensibles** (hors antenne, vie privée, « on coupe ça ») : jamais en short.
-11. Propose **6 à 12 shorts de 20 à 60 s**, en mélangeant accroches **curiosité** (« Elle n'a pas gagné… et a réussi *autrement* ») et **choc** (citation forte entre « »), pour comparer.
+11. Propose **6 à 12 shorts de 20 à 60 s**, en mélangeant accroches **curiosité** et **choc** (citation forte entre « »), pour comparer. Chaque short suit la section 5.
+
+## 5. Raconter une histoire en 30 secondes (le plus important)
+
+Un short n'est pas un passage de l'interview découpé : c'est une **mini-histoire remontée**. Tu as le droit (et le devoir) de **changer l'ordre** des phrases et de **retirer** tout ce qui ne sert pas l'histoire.
+
+**La structure** (dans l'ordre des `extraits`, pas dans l'ordre du rush) :
+1. **Ouverture à froid (0-3 s)** : la phrase la plus forte, la plus visuelle ou la plus intrigante du passage, **même si elle est dite à la fin**. Elle doit donner envie de savoir « comment ? / pourquoi ? ». Jamais une phrase de mise en place (« alors, en fait, j'ai commencé… »), jamais une question de l'animateur en premier.
+2. **Le contexte, en accéléré** : seulement ce qu'il faut pour comprendre (qui, quand, où). Une phrase par idée. Coupe les répétitions, les reformulations (« donc 3 ans et 6 mois… »), les apartés, les « voilà », « en fait », les phrases qui redisent la même chose.
+3. **La montée** : l'émotion, l'obstacle, le détail concret.
+4. **La chute** : un retournement ou une phrase qui conclut (morale, punchline, émotion). Le short **s'arrête net sur cette phrase**. Pas de « voilà », pas de relance de l'animateur après.
+
+**Ce qu'on retire** : les débuts mous, les « euh/ben » isolés en début de morceau, les phrases recommencées (garde la meilleure version), les explications que l'accroche ou la suite rendent inutiles, les phrases où l'autre personne parle en même temps.
+
+**Contrôle** : relis tes extraits mis bout à bout comme un texte. Il doit se comprendre sans l'interview, sonner naturel (pas de « et » ou « donc » orphelin qui renvoie à une phrase retirée) et ne pas répéter la même info deux fois (sauf boucle voulue : la fin fait écho au début).
+
+## 6. L'accroche (texte en haut de l'écran)
+
+L'accroche se lit en 1 seconde et doit **arrêter le pouce**. Elle **ne répète pas** ce qui est dit dans les 3 premières secondes : elle **ajoute** la tension.
+
+- **Concrète** : un chiffre, un âge, un lieu, un objet, un nom connu. « Il a vu le ciel *4 ans*, puis plus rien » plutôt que « Son histoire est incroyable ».
+- **Un contraste ou une question ouverte** : avant/après, attendu/inattendu (« Il chantait dans la rue. Un inconnu *a tout misé* »), ou une question adressée au spectateur (« Tu ne parles plus à *ta famille* ? »).
+- **Ne raconte pas la fin** : l'accroche ouvre la question, le short y répond.
+- **Pas de** résumé plat (« Il parle de… »), de superlatif vide (« incroyable », « choquant »), de titre de chapitre (« Sans la vue »), de troisième personne vague sans enjeu.
+- Le mot entre `*…*` est le **mot qui porte la tension** (le retournement, le chiffre), pas un mot décoratif.
+- Pour chaque short, écris dans `_` : l'ouverture à froid choisie, la chute, et pourquoi l'accroche donne envie.

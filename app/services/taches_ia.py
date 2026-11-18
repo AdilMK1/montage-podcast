@@ -14,7 +14,9 @@ from .transcript import mots, transcript_ia
 
 CONSIGNE_SHORTS = ("Propose 6 à 10 shorts (section 3 des consignes) de 20 à 60 s, sans chevauchement entre eux, bornes "
                    "prises sur les temps du transcript (début d'une phrase ; fin d'une phrase + 0,2 s). Mélange accroches "
-                   "curiosité et choc, n'invente rien qui ne soit pas dit. Réponds UNIQUEMENT avec le JSON complet de shorts.json.")
+                   "curiosité et choc, n'invente rien qui ne soit pas dit. Chaque short est une mini-histoire REMONTÉE (sections 5 et 6 : "
+                   "ouverture à froid sur la phrase la plus forte, contexte resserré, chute nette ; accroche concrète qui "
+                   "ajoute la tension). Réponds UNIQUEMENT avec le JSON complet de shorts.json.")
 CONSIGNE_EPISODE = ("Écris episode.json (section 2 des consignes) : trim_s, montage (morceaux gardés), « coupes » "
                     "[{\"debut\": s, \"fin\": s, \"raison\": \"…\"}] pour chaque passage retiré (hors antenne, réglages, "
                     "« on coupe ça », longs blancs), et « apercu » (début d'un passage vivant). Si rien n'est à retirer, "

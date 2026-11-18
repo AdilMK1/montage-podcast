@@ -28,6 +28,10 @@ Double-clique **`Lancer.command`** : l'app s'ouvre dans ton navigateur sur http:
 - **La fermer arrête l'interface, pas les rendus** : ils continuent en fond (le « moteur de travail »). Relance `Lancer.command` quand tu veux : tu retrouves tout où tu l'avais laissé.
 - Si l'app est déjà ouverte, `Lancer.command` ouvre juste un nouvel onglet.
 
+## Mises à jour
+
+Automatiques : à chaque lancement, l'app installe la dernière version si elle existe (jamais pendant un rendu). Tes podcasts, tes packs et `config.json` sont gardés. Pour ne plus le faire : `"mise_a_jour": {"auto": false}` dans `config.json`. Si tu as récupéré l'app avec git, elle fait un `git pull` (seulement si tu n'as rien modifié dans le code).
+
 ## Le parcours
 
 L'app te prend par la main : une étape se débloque quand la précédente est prête, et un bouton grisé dit toujours pourquoi.

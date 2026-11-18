@@ -45,11 +45,20 @@ function vide() {
       (packs de shorts)</a></p></div>`;
 }
 
+// mise à jour : installée au lancement (Lancer), ou disponible si l'app est restée ouverte
+function noteMaj(m) {
+  if (!m) return "";
+  if (m.disponible) return `<p class="maj fade">Nouvelle version <b>${esc(m.distante)}</b> disponible (tu as la ${esc(m.locale)}).
+    Pour l'installer : ferme la fenêtre « Lancer » puis relance l'app. Les rendus en cours ne sont pas touchés.</p>`;
+  if (m.faite) return `<p class="maj ok fade">App mise à jour : version <b>${esc(m.locale)}</b>.</p>`;
+  return "";
+}
+
 export function rendreAccueil(page, vue) {
   const projets = vue.projets || [];
   document.title = vue.nom || document.title;
   // ce qui change la mise en page ; la barre (pourcentage, signe de vie) se met à jour à part
-  const s = JSON.stringify(projets.map(p => ({...p, tache: p.tache ? p.tache.id + p.tache.titre : null})));
+  const s = JSON.stringify([vue.maj, projets.map(p => ({...p, tache: p.tache ? p.tache.id + p.tache.titre : null}))]);
   if (s === structure && page.querySelector("[data-accueil]")) {
     for (const p of projets) {
       const z = page.querySelector(`.zone-barre[data-projet="${CSS.escape(p.id)}"]`);
@@ -58,7 +67,7 @@ export function rendreAccueil(page, vue) {
     return;
   }
   structure = s;
-  page.innerHTML = `<div data-accueil>${projets.length ? `
+  page.innerHTML = `<div data-accueil>${noteMaj(vue.maj)}${projets.length ? `
     <div class="hero fade"><h1>Mes podcasts</h1><span class="nb">${projets.length}</span><span class="sp"></span>
       <a class="btn" href="/?packs" data-nav><span aria-hidden="true">🎨</span> Packs de shorts</a>
       <button class="btn p" type="button" data-act="nouveau">＋ Nouveau podcast</button></div>

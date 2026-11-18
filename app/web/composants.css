@@ -146,3 +146,7 @@
 .ok-txt{color:var(--ok);font-weight:600}
 .work{margin:28px auto 0;max-width:620px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);padding:30px}
 @media (max-width:820px){.recap{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- accueil : mise à jour de l'app */
+.maj{margin:0 0 var(--s4,16px);padding:10px 14px;border-radius:10px;background:var(--warn-soft);color:var(--warn);font-size:13.5px}
+.maj.ok{background:var(--ok-soft);color:var(--ok)}

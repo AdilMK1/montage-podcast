@@ -12,6 +12,7 @@ if repond; then  # l'app tourne déjà (autre fenêtre) : on l'ouvre, c'est tout
   exit 0
 fi
 
+.venv/bin/python -m app.mise_a_jour  # nouvelle version ? installée avant d'ouvrir (jamais pendant un rendu)
 .venv/bin/python -m app.api.serveur $PORT &  # le serveur démarre et surveille l'atelier (qui fait les rendus)
 SRV=$!
 for i in {1..50}; do

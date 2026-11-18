@@ -18,6 +18,9 @@ if not errorlevel 1 (
   exit /b 0
 )
 
+rem nouvelle version ? installee avant d'ouvrir (jamais pendant un rendu)
+.venv\Scripts\python.exe -m app.mise_a_jour
+
 rem le navigateur s'ouvre des que l'app repond
 start "" /b powershell -NoProfile -WindowStyle Hidden -Command "for($i=0;$i -lt 80;$i++){try{Invoke-WebRequest -UseBasicParsing -TimeoutSec 1 '%URL%/api/accueil' | Out-Null; Start-Process '%URL%'; break}catch{Start-Sleep -Milliseconds 500}}"
 

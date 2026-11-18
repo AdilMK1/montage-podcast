@@ -10,6 +10,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 import traceback
 import uuid
@@ -17,6 +18,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from app import mise_a_jour
 from app.fichiers import lire_json
 from app.ia.claude import commande as commande_ia
 from app.packs import bibliotheque as B
@@ -134,6 +136,24 @@ class Application:
         """couleur d'accent de config.json, si c'est bien une couleur hexadécimale ; sinon celle par défaut"""
         a = self.config().get("accent")
         return a if isinstance(a, str) and ACCENT_VALIDE.match(a) else ACCENT_DEFAUT.decode()
+
+    def etat_maj(self) -> dict:
+        """dernière vérification de mise à jour (au lancement, puis toutes les 6 h tant que l'app tourne)"""
+        e = mise_a_jour.lire_etat(self.racine_app)
+        if self.superviser and time.time() - e.get("t", 0) > 6 * 3600 and not getattr(self, "_maj_en_cours", False):
+            self._maj_en_cours = True
+
+            def verifier():
+                try:
+                    v = mise_a_jour.verifier(self.racine_app)
+                    mise_a_jour._ecrire_etat(self.racine_app, {**e, **v, "faite": False})
+                finally:
+                    self._maj_en_cours = False
+            threading.Thread(target=verifier, daemon=True).start()
+        if e.get("faite") and time.time() - e.get("t", 0) > 24 * 3600:
+            e = {**e, "faite": False}  # « version installée » : affiché un jour, pas plus
+        return {"locale": self.version(), "distante": e.get("distante"), "faite": bool(e.get("faite")),
+                "disponible": bool(e.get("distante")) and mise_a_jour.plus_recente(e["distante"], self.version())}
 
     def version(self) -> str:
         f = self.racine_app / "VERSION"
@@ -290,7 +310,7 @@ class Gestionnaire(BaseHTTPRequestHandler):
     def get(self, chemin: str, q: dict):
         a = self.app
         if chemin == "/api/accueil":
-            self.envoyer_json({"nom": a.nom(), "version": a.version(),
+            self.envoyer_json({"nom": a.nom(), "version": a.version(), "maj": a.etat_maj(),
                                "projets": self.cartes()})
         elif chemin == "/api/projet":
             a.assurer()
